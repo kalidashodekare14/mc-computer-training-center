@@ -3,7 +3,9 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Courses from "../Pages/Courses/Courses";
-import ContactUs from "../Layout/ContactUs/ContactUs";
+import Gellery from "../Pages/Gellery/Gellery";
+import ContactUs from "../Pages/ContactUs/ContactUs";
+
 
 const router = createBrowserRouter([
     {
@@ -24,8 +26,13 @@ const router = createBrowserRouter([
             },
             {
                 path: 'gellery',
+                element: <Gellery></Gellery>
+            },
+            {
+                path: 'contact-us',
                 element: <ContactUs></ContactUs>
             },
+
         ]
     },
 ]);

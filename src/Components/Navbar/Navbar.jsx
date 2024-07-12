@@ -8,19 +8,49 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const links = <>
-        <NavLink className="my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">Home</NavLink>
-        <NavLink className="my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">About Us</NavLink>
-        <NavLink className="my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">Courses</NavLink>
-        <NavLink className="my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">Gellery</NavLink>
-        <NavLink className="my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="#">Contact Us</NavLink>
+        <NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border-b-2 border-[#20d7ab] my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0" : "my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0"
+            } >
+            Home
+        </NavLink>
+        <NavLink
+            to="/about-us"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border-b-2 border-[#20d7ab] my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0" : "my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0"
+            }>
+            About Us
+        </NavLink>
+        <NavLink
+            to="/courses"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border-b-2 border-[#20d7ab] my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0" : "my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0"
+            } >
+            Courses
+        </NavLink>
+        <NavLink
+            to="/gellery"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border-b-2 border-[#20d7ab] my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0" : "my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0"
+            } >
+            Gellery
+        </NavLink>
+        <NavLink
+            to="/contact-us"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "border-b-2 border-[#20d7ab] my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0" : "my-2 text-[#ffffffc3] transition-colors duration-300 transform dark:text-gray-200 hover:text-[#20d7ab] dark:hover:text-blue-400 md:mx-4 md:my-0"
+            } >
+            Contact Us
+        </NavLink>
     </>
 
     return (
-        <nav x-data="{ isOpen: false }" className="relative bg-[#323436] shadow dark:bg-gray-800">
-            <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+        <nav x-data="{ isOpen: false }" className="relative shadow dark:bg-gray-800">
+            <div className="w-full absolute  z-40 bg-[#05090d83] px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
                 <div className="flex items-center justify-between">
                     <a href="#">
-                        <h1 className='font-bold text-2xl text-[#ffffffc3]'>MC Computer</h1>
+                        <h1 className='font-bold text-2xl text-[#000000c3]'>MC Computer</h1>
                     </a>
 
                     <div className="flex lg:hidden">
@@ -41,7 +71,7 @@ const Navbar = () => {
                 </div>
 
                 <div className={`${isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full'} absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`}>
-                    <div className="flex flex-col md:flex-row md:mx-6">
+                    <div className="flex flex-col md:flex-row md:mx-6 bg-black lg:bg-opacity-0">
                         {links}
                     </div>
                 </div>

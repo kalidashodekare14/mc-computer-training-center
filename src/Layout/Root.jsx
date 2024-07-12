@@ -1,10 +1,14 @@
 import React from 'react';
 import Navbar from '../Components/Navbar/Navbar';
+import { Outlet } from 'react-router-dom';
 
 const Root = () => {
     return (
         <div>
-            <Navbar></Navbar>
+            <div className='relative'>
+                <Navbar></Navbar>
+            </div>
+            <Outlet></Outlet>
         </div>
     );
 };

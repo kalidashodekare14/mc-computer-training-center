@@ -7,6 +7,8 @@ import router from './Routers/Router.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <div className='font-roboto'>
+      <RouterProvider router={router} />
+    </div>
   </React.StrictMode>,
 )
