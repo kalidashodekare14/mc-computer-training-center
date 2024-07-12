@@ -47,7 +47,7 @@ const Navbar = () => {
 
     return (
         <nav x-data="{ isOpen: false }" className="relative shadow dark:bg-gray-800">
-            <div className="w-full absolute  z-40 bg-[#05090d83] px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div className="w-full  absolute  z-40 bg-[#05090d83] px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
                 <div className="flex items-center justify-between">
                     <a href="#">
                         <h1 className='font-bold text-2xl text-[#000000c3]'>MC Computer</h1>

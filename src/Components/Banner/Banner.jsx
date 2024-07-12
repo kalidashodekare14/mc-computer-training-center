@@ -11,6 +11,8 @@ import './Banner.css'
 
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import Button from '../../Hooks/Button/ButtonWhite';
+import ButtonWhite from '../../Hooks/Button/ButtonWhite';
 
 const Banner = () => {
     return (
@@ -36,7 +38,7 @@ const Banner = () => {
                             <h1 className='text-6xl text-white'>MC Computer</h1>
                             <h3 className='text-4xl text-[#D1D1D1]'>And Training Center</h3>
                             <p className='text-white'>Learn essential computer skills with our user-friendly courses.</p>
-                            <button className='btn bg-opacity-0 border border-[#20d7ab] hover:bg-[#20d7ab] hover:border-[#20d7ab] text-white w-32'>Enroll Now</button>
+                            <ButtonWhite>Enroll Now</ButtonWhite>
                         </div>
                     </div>
                 </SwiperSlide>
