@@ -5,6 +5,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Courses from "../Pages/Courses/Courses";
 import Gellery from "../Pages/Gellery/Gellery";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import Login from "../Components/Login/Login";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
                 path: 'contact-us',
                 element: <ContactUs></ContactUs>
             },
+            {
+                path:'login',
+                element:<Login></Login>
+            }
 
         ]
     },
