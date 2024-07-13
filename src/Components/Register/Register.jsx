@@ -1,57 +1,62 @@
+
 import { useContext } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 
-const Login = () => {
 
-    const{signIn,  signInWithGoogle }=useContext(AuthContext);
-    const navigate= useNavigate();
-    console.log(signIn);
-    const handleLogin = async(e)=>{
+const Register = () => {
+    const{creactUser}= useContext(AuthContext);
+    console.log(creactUser);
+    const navigate = useNavigate();
+
+
+    const handleSignUp= async e =>{
         e.preventDefault();
-            const form = e.target;
-            const email = form.email.value;
-            const password = form.password.value;
-            console.log(email, password);
-
-
-            signIn(email, password)
-        .then(result=>{
-            console.log(result.user);
-            Swal.fire({
-                title: "User Login successfully",
-                showClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeInUp
-                    animate__faster
-                  `
-                },
-                hideClass: {
-                  popup: `
-                    animate__animated
-                    animate__fadeOutDown
-                    animate__faster
-                  `
-                }
-              });
-
-              navigate('/');
-        })
-
-    }
-
-    const handleSocialLogin = (e)=>{
-        e.preventDefault();
-        signInWithGoogle()
-        navigate('/')
+        const form = e.target;
+        const email = form.email.value;
+        const name = form.name.value;
         
+        const password = form.password.value;
+        const confirmPassword = form.rePassword.value;
+        console.log(email, name, password, confirmPassword);
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            return;
+        }
+
+
+        try{
+            const result= await creactUser(email,password);
+            console.log(result);
+            navigate('/');
+
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              
+
+
+            
+        }
+
+         
+        catch(err)
+        {
+        //   console.log(err);
+        }
+
     }
+
     return (
         <div>
+            <div>
           <div className="my-[60px]">
 
           
@@ -88,7 +93,29 @@ backgroundImage: `url('https://i.ibb.co/Y82yDtr/pexels-mati-2528695.jpg')`,
 
 
 
-<form onSubmit={handleLogin}>
+<form  onSubmit={handleSignUp}>
+
+
+<div className='mt-4'>
+  <label
+    className='block mb-2 text-sm font-medium text-gray-600 '
+    htmlFor='LoggingName'
+  >
+    
+  </label>
+  <input
+ 
+    id='LoggingName'
+    autoComplete='Name'
+    
+    placeholder=" enter your Name"
+    name='name'
+  
+    type='Name'
+  />
+</div>
+
+<hr className="border border-[1px] border-black my-[16px]" />
 <div className='mt-4'>
   <label
     className='block mb-2 text-sm font-medium text-gray-600 '
@@ -132,6 +159,28 @@ backgroundImage: `url('https://i.ibb.co/Y82yDtr/pexels-mati-2528695.jpg')`,
 
 <hr className="border border-[1px] border-black my-[16px]" />
 
+<div className='mt-4'>
+  <div className='flex justify-between'>
+    <label
+      className='block mb-2 text-sm font-medium text-gray-600 '
+      htmlFor='rePassword'
+    >
+     
+    </label>
+  </div>
+
+  <input
+    id='rePassword'
+    autoComplete='current-password'
+    name='repassword'
+    placeholder="RePassword"
+   
+    type='password'
+  />
+</div>
+
+<hr className="border border-[1px] border-black my-[16px]" />
+
 
 <div className="form-control">
   <label className="cursor-pointer flex">
@@ -147,7 +196,7 @@ backgroundImage: `url('https://i.ibb.co/Y82yDtr/pexels-mati-2528695.jpg')`,
     type='submit'
     className="btn px-[30px] bg-[#20d7ab] text-white font-bold"
   >
-   Login
+   Register
   </button>
 </div>
 </form>
@@ -157,15 +206,10 @@ backgroundImage: `url('https://i.ibb.co/Y82yDtr/pexels-mati-2528695.jpg')`,
   
     
    
-    <div className="flex gap-[16px] my-[20px]">
-
-<h1 className="font-bold">or Login with</h1>
-<button onClick={handleSocialLogin}><FcGoogle className="text-2xl" /></button>
-
-  </div>
+  
 
   <div>
-    <Link to='/register'> <h1 className= "underline underline-offset-2">Create Your Account</h1></Link>
+    <Link to='/I am Already Member'> <h1 className= "underline underline-offset-2">Create Your Account</h1></Link>
   </div>
 </div>
 </div>
@@ -173,7 +217,8 @@ backgroundImage: `url('https://i.ibb.co/Y82yDtr/pexels-mati-2528695.jpg')`,
 
 </div>
         </div>
+        </div>
     );
 };
 
-export default Login;
+export default Register;
