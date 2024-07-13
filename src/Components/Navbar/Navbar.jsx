@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
+
+
+    const{user, logOut}= useContext(AuthContext);
+    console.log(user);
+    console.log(logOut);
+
+    const handleLogOut = ()=>{
+        logOut()
+        .then()
+        .catch()
+      }
 
 
     const [isOpen, setIsOpen] = useState(false);
@@ -75,9 +87,28 @@ const Navbar = () => {
                         {links}
                     </div>
 
-                    <Link to='/login'>
-                    <button className='btn'>login</button>
+
+                    {
+                        user? 
+                        <>
+                        
+                    <button  onClick={handleLogOut} className="btn px-[30px] bg-[#20d7ab] text-white font-bold border-0">logOut</button>
+                    
+                        </>
+                        :
+                        <>
+                        <Link to='/login'>
+                    <button
+                   
+                    
+                    className="btn px-[30px] bg-[#20d7ab] text-white font-bold border-0">login</button>
                     </Link>
+                        </>
+                    }
+
+                    {/* <Link to='/login'>
+                    <button className="btn px-[30px] bg-[#20d7ab] text-white font-bold border-0">login</button>
+                    </Link> */}
                 </div>
             </div>
         </nav>

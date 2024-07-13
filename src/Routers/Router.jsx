@@ -6,6 +6,7 @@ import Courses from "../Pages/Courses/Courses";
 import Gellery from "../Pages/Gellery/Gellery";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import Login from "../Components/Login/Login";
+import Register from "../Components/Register/Register";
 
 
 const router = createBrowserRouter([
@@ -33,13 +34,22 @@ const router = createBrowserRouter([
                 path: 'contact-us',
                 element: <ContactUs></ContactUs>
             },
-            {
-                path:'login',
-                element:<Login></Login>
-            }
+            // {
+            //     path:'login',
+            //     element:<Login></Login>
+            // }
 
         ]
     },
+
+    {
+        path:'login',
+        element:<Login></Login>
+    },
+    {
+        path:'register',
+        element:<Register></Register>
+    }
 ]);
 
 
