@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -74,6 +74,10 @@ const Navbar = () => {
                     <div className="flex flex-col md:flex-row md:mx-6 bg-black lg:bg-opacity-0">
                         {links}
                     </div>
+
+                    <Link to='/login'>
+                    <button className='btn'>login</button>
+                    </Link>
                 </div>
             </div>
         </nav>
