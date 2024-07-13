@@ -34,8 +34,8 @@ const Banner = () => {
             >
                 <SwiperSlide>
                     <div className='banner bg-no-repeat bg-center bg-cover h-[100vh]'>
-                        <div className='mx-32 space-y-3 flex flex-col justify-center w-[40%] h-[100vh]'>
-                            <h1 className='text-6xl text-white'>MC Computer</h1>
+                        <div className='lg:mx-32 space-y-3 flex flex-col justify-center lg:w-[40%] h-[100vh]'>
+                            <h1 className='lg:text-6xl text-white'>MC Computer</h1>
                             <h3 className='text-4xl text-[#D1D1D1]'>And Training Center</h3>
                             <p className='text-white'>Learn essential computer skills with our user-friendly courses.</p>
                             <ButtonWhite>Enroll Now</ButtonWhite>
