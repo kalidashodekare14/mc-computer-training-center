@@ -10,7 +10,6 @@ const Login = () => {
 
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(signIn);
   const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -53,81 +52,78 @@ const Login = () => {
   }
   return (
     <div>
-      <div className="my-[60px]">
-        <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
-          <div className='flex w-[80%] m-auto '>
-            <div className="w-[50%]">
-              <img className="" src={loginImage} alt="" />
+      <div className='flex justify-center items-center min-h-screen'>
+        <div className='flex w-[80%] m-auto '>
+          <div className="w-[50%]">
+            <img className="" src={loginImage} alt="" />
+          </div>
+          <div className='w-[40%] px-6 py-8 md:px-8 lg:w-1/2'>
+            <div className='flex justify-center mx-auto'>
             </div>
-            <div className='w-[40%] px-6 py-8 md:px-8 lg:w-1/2'>
-              <div className='flex justify-center mx-auto'>
+            <p className='mt-3 text-4xl'>Sign In</p>
+            <form onSubmit={handleLogin}>
+              <div className='mt-4 border-b-[1.5px] border-[#000]'>
+                <label
+                  className='block mb-2 text-sm font-medium text-gray-600 '
+                  htmlFor='LoggingEmailAddress'
+                >
+
+                </label>
+                <input
+                  className="input w-full "
+                  id='LoggingEmailAddress'
+                  autoComplete='email'
+
+                  placeholder="Enter Your Email"
+                  name='email'
+
+                  type='email'
+                />
               </div>
-              <p className='mt-3 text-4xl'>Sign In</p>
-              <form onSubmit={handleLogin}>
-                <div className='mt-4 border-b-[1.5px] border-[#000]'>
+              <div className='my-4 border-b-[1.5px] border-[#000]'>
+                <div className='flex justify-between'>
                   <label
                     className='block mb-2 text-sm font-medium text-gray-600 '
-                    htmlFor='LoggingEmailAddress'
+                    htmlFor='loggingPassword'
                   >
-
-                  </label>
-                  <input
-                    className="input w-full "
-                    id='LoggingEmailAddress'
-                    autoComplete='email'
-
-                    placeholder="Enter Your Email"
-                    name='email'
-
-                    type='email'
-                  />
-                </div>
-                <div className='my-4 border-b-[1.5px] border-[#000]'>
-                  <div className='flex justify-between'>
-                    <label
-                      className='block mb-2 text-sm font-medium text-gray-600 '
-                      htmlFor='loggingPassword'
-                    >
-                    </label>
-                  </div>
-                  <input
-                    className="input w-full "
-                    id='loggingPassword'
-                    autoComplete='current-password'
-                    name='password'
-                    placeholder="Enter Your Password"
-                    type='password'
-                  />
-                </div>
-                <div className="form-control">
-                  <label className="cursor-pointer flex">
-                    <input type="checkbox" required className="checkbox checkbox-accent" />
-                    <span className=" mb-[4px] ml-[10px]">Remember me</span>
                   </label>
                 </div>
-                <div className='mt-6'>
-                  <button
-                    type='submit'
-                    className="btn px-[30px] bg-[#20d7ab] text-white font-bold"
-                  >
-                    Login
-                  </button>
-                </div>
-              </form>
-              <div className="flex items-center gap-[16px] my-[20px]">
-                <h1 className="font-bold">Or Login with</h1>
-                <button onClick={handleSocialLogin}>
-                  <FcGoogle className="text-4xl" />
+                <input
+                  className="input w-full "
+                  id='loggingPassword'
+                  autoComplete='current-password'
+                  name='password'
+                  placeholder="Enter Your Password"
+                  type='password'
+                />
+              </div>
+              <div className="form-control">
+                <label className="cursor-pointer flex">
+                  <input type="checkbox" required className="checkbox checkbox-accent" />
+                  <span className=" mb-[4px] ml-[10px]">Remember me</span>
+                </label>
+              </div>
+              <div className='mt-6'>
+                <button
+                  type='submit'
+                  className="btn px-[30px] bg-[#20d7ab] text-white font-bold"
+                >
+                  Login
                 </button>
-                <FaFacebookSquare className="text-4xl text-[#3b5998]" />
               </div>
-              <div>
-                <Link to='/register'> <h1 className="underline underline-offset-2">Create Your Account</h1></Link>
-              </div>
+            </form>
+            <div className="flex items-center gap-[16px] my-[20px]">
+              <h1 className="font-bold">Or Login with</h1>
+              <button onClick={handleSocialLogin}>
+                <FcGoogle className="text-4xl" />
+              </button>
+              <FaFacebookSquare className="text-4xl text-[#3b5998]" />
+            </div>
+            <div>
+              <Link to='/register'> <h1 className="underline underline-offset-2">Create Your Account</h1></Link>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
